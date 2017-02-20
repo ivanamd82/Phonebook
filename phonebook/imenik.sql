@@ -1,0 +1,11 @@
+CREATE TABLE user (
+    name VARCHAR(50) PRIMARY KEY NOT NULL,
+    password VARCHAR(50)
+);
+
+CREATE TABLE contact (
+    contactID INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name VARCHAR(50),
+    phone VARCHAR(50),
+    userName VARCHAR(50)
+);
