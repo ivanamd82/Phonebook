@@ -12,7 +12,7 @@ public class ContactBO implements IContactBO {
 	
 	ContactDAO contactDAO = null;
 	Contact contact = null;
-	ArrayList<Contact> contacts= null;
+	ArrayList<Contact> contacts = null;
 
 	@Override
 	public ArrayList<Contact> getContactsBO(String userName) throws SQLException {
@@ -47,10 +47,7 @@ public class ContactBO implements IContactBO {
 				return false;
 			}
 			else {
-				this.contact.setName(name);
-				this.contact.setPhone(phone);
-				this.contact.setUserName(userName);
-				return contactDAO.addContact(contact);
+				return contactDAO.addContact(name, phone, userName);
 			}
 		}
 		
@@ -82,12 +79,12 @@ public class ContactBO implements IContactBO {
 		}
 	}
 
-	@Override
+/*	@Override
 	public boolean printContact(Contact contact) throws SQLException {
 		
 		return false;
 	}
-	
+*/	
 	public void setContactDAO(ContactDAO contactDAO) {
 		this.contactDAO = contactDAO;
 	}

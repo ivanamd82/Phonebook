@@ -56,14 +56,14 @@ public class ContactDAO implements IContactDAO {
 	}
 
 	@Override
-	public boolean addContact(Contact contact) throws SQLException {
+	public boolean addContact(String name, String phone, String userName) throws SQLException {
 		
 		String query = "INSERT INTO imenik.contact (name,phone,userName) VALUES (?, ?, ?)";
 		
 		try (PreparedStatement ps = connection.prepareStatement(query)) {
-			ps.setString(1, contact.getName());
-			ps.setString(2, contact.getPhone());
-			ps.setString(3,	contact.getUserName());
+			ps.setString(1, name);
+			ps.setString(2, phone);
+			ps.setString(3, userName);
 			
 			ps.executeUpdate();
 //			System.out.println("Kontakt dodat.");

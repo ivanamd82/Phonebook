@@ -37,8 +37,8 @@ public class UserBO implements IUserBO {
 			return false;
 		}
 		else {
-			User user1 = userDAO.getUser(name);
-			if (user1 != null) {
+			User user = userDAO.getUser(name);
+			if (user != null) {
 				return false;
 			}
 			else {
