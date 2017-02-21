@@ -36,13 +36,13 @@ public class UserDAO implements IUserDAO {
 	}
 
 	@Override
-	public boolean addUser(User user) throws SQLException {		
+	public boolean addUser(String name, String password) throws SQLException {		
 	
 		String query = "INSERT INTO imenik.user (name,password) VALUES (?, ?)";
 		
 		try (PreparedStatement ps = connection.prepareStatement(query)) {
-			ps.setString(1, user.getName());
-			ps.setString(2, user.getPassword());
+			ps.setString(1, name);
+			ps.setString(2, password);
 			
 			ps.executeUpdate();
 			

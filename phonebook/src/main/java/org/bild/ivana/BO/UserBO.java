@@ -37,17 +37,16 @@ public class UserBO implements IUserBO {
 			return false;
 		}
 		else {
-			user = userDAO.getUser(name);
-			if (user != null) {
+			User user1 = userDAO.getUser(name);
+			if (user1 != null) {
 				return false;
 			}
 			else {
-				this.user.setName(name);
-				this.user.setPassword(password);
-				return userDAO.addUser(user);
+				return userDAO.addUser(name, password);
 			}
 		}		
 	}
+
 	//promjena lozinke
 	@Override
 	public boolean updateUserBO(User user, String password) throws SQLException {
@@ -64,5 +63,12 @@ public class UserBO implements IUserBO {
 			}
 		}
 	}
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 
 }
