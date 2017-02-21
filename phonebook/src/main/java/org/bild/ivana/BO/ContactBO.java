@@ -15,8 +15,8 @@ public class ContactBO implements IContactBO {
 	ArrayList<Contact> contacts= null;
 
 	@Override
-	public ArrayList<Contact> getContacts(String userName) throws SQLException {
-		if (userName == " ") {
+	public ArrayList<Contact> getContactsBO(String userName) throws SQLException {
+		if (userName == "") {
 			return null;
 		}
 		else {
@@ -26,7 +26,7 @@ public class ContactBO implements IContactBO {
 	}
 
 	@Override
-	public Contact getContact(int contactID) throws SQLException {
+	public Contact getContactBO(int contactID) throws SQLException {
 		if (contactID == 0) {
 			return null;
 		}
@@ -37,13 +37,13 @@ public class ContactBO implements IContactBO {
 	}
 
 	@Override
-	public boolean addContact(String name, String phone, String userName) throws SQLException {
+	public boolean addContactBO(String name, String phone, String userName) throws SQLException {
 		
-		if (userName == null) {
+		if (userName == "") {
 			return false;
 		}
 		else {
-			if (name == null || phone == null) {
+			if (name == "" || phone == "") {
 				return false;
 			}
 			else {
@@ -57,7 +57,7 @@ public class ContactBO implements IContactBO {
 	}
 
 	@Override
-	public boolean updateContact(String name, String phone, int contactID) throws SQLException {
+	public boolean updateContactBO(String name, String phone, int contactID) throws SQLException {
 		if (contactID == 0) {
 			return false;
 		}
@@ -72,7 +72,7 @@ public class ContactBO implements IContactBO {
 	}
 
 	@Override
-	public boolean deleteContact(int contactID) throws SQLException {
+	public boolean deleteContactBO(int contactID) throws SQLException {
 		
 		if (contactID == 0) {
 			return false;
@@ -86,6 +86,10 @@ public class ContactBO implements IContactBO {
 	public boolean printContact(Contact contact) throws SQLException {
 		
 		return false;
+	}
+	
+	public void setContactDAO(ContactDAO contactDAO) {
+		this.contactDAO = contactDAO;
 	}
 
 }

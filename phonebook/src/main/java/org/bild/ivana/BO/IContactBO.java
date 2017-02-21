@@ -9,15 +9,15 @@ import org.bild.ivana.DTO.Contact;
 
 public interface IContactBO {
 	
-	public ArrayList<Contact> getContacts(String userName) throws SQLException;
+	public ArrayList<Contact> getContactsBO(String userName) throws SQLException;
 	
-	public Contact getContact(int contactID) throws SQLException;
+	public Contact getContactBO(int contactID) throws SQLException;
 	
-	public boolean addContact(String name, String number, String userName) throws SQLException;
+	public boolean addContactBO(String name, String number, String userName) throws SQLException;
 	
-	public boolean updateContact(String name, String password, int contactID) throws SQLException;
+	public boolean updateContactBO(String name, String password, int contactID) throws SQLException;
 	
-	public boolean deleteContact(int contactID) throws SQLException;
+	public boolean deleteContactBO(int contactID) throws SQLException;
 	
 	public boolean printContact(Contact contact) throws SQLException;
 
