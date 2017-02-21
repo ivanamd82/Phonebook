@@ -66,7 +66,6 @@ public class ContactDAO implements IContactDAO {
 			ps.setString(3, userName);
 			
 			ps.executeUpdate();
-//			System.out.println("Kontakt dodat.");
 			
 			return true;
 		}
@@ -83,7 +82,6 @@ public class ContactDAO implements IContactDAO {
 			ps.setInt(3, contactID);
 			
 			ps.executeUpdate();
-//			System.out.println("Kontakt izmijenjen.");
 			
 			return true;
 		}
@@ -92,13 +90,11 @@ public class ContactDAO implements IContactDAO {
 	@Override
 	public boolean deleteContact(int contactID) throws SQLException {
 		
-		String query = "DELETE * FROM imenik.contact WHERE contactID = ?";
+		String query = "DELETE FROM imenik.contact WHERE contactID = ?";
 		
 		try (PreparedStatement ps = connection.prepareStatement(query)) {
 			ps.setInt(1, contactID);
 			ps.executeUpdate();
-			
-//			System.out.println("Kontakt izbrisan");
 			
 			return true;
 		}

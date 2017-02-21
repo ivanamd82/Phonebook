@@ -7,8 +7,6 @@ import java.sql.SQLException;
 
 import org.bild.ivana.DTO.User;
 
-
-
 public class UserDAO implements IUserDAO {
 	
 	Connection connection = ConnectionManager.getInstance().getConnection();
@@ -29,10 +27,12 @@ public class UserDAO implements IUserDAO {
 			
 			if(rs.next()) {
 				user = new User(rs.getString("name"), rs.getString("password"));
-				rs.close();
 			}
+			rs.close();
+			
+			return user;
 		}		
-		return user;
+		
 	}
 
 	@Override
@@ -46,7 +46,6 @@ public class UserDAO implements IUserDAO {
 			
 			ps.executeUpdate();
 			
-//			System.out.println("Registracija zavrsena.");
 		}
 		return true;
 		
@@ -64,7 +63,6 @@ public class UserDAO implements IUserDAO {
 			ps.setString(2, user.getName());
 			ps.executeUpdate();
 	
-//			System.out.println("Promjena izvrsena");
 			return true;
 		}
 

@@ -8,7 +8,7 @@ import org.bild.ivana.DTO.User;
 
 public class UserBO implements IUserBO {
 	
-	UserDAO userDAO = null;
+	UserDAO userDAO = new UserDAO();
 	User user = null;
 	
 	//login
@@ -21,7 +21,7 @@ public class UserBO implements IUserBO {
 		else {
 			user = userDAO.getUser(name);
 		
-			if(user.getPassword() != password) {
+			if(!user.getPassword().equals(password)) {
 				return null;
 			}
 			else {		
