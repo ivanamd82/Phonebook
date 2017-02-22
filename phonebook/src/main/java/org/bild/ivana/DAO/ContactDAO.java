@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 import org.bild.ivana.DTO.Contact;
 
-
-
 public class ContactDAO implements IContactDAO {
 	
 	Connection connection = ConnectionManager.getInstance().getConnection();
@@ -18,13 +16,15 @@ public class ContactDAO implements IContactDAO {
 	public ArrayList<Contact> getContacts(String userName) throws SQLException {
 		
 		ArrayList<Contact> contacts = new ArrayList<>();
-		String query = "SELECT * from imenik.contact WHERE contact.userName = ?";
+		
+		String query = "SELECT * FROM imenik.contact WHERE contact.userName = ?";
+		
 		ResultSet rs = null;
 		
 		try (PreparedStatement ps = connection.prepareStatement(query)){
 			
 			ps.setString(1, userName);
-			rs = ps.executeQuery(query);
+			rs = ps.executeQuery();
 			
 			while(rs.next()) {
 				contacts.add(new Contact(rs.getInt("contactID"),rs.getString("name"),rs.getString("phone"),rs.getString("userName")));
@@ -38,14 +38,14 @@ public class ContactDAO implements IContactDAO {
 		
 		Contact contact = null;
 		
-		String query = "SELECT * FROM imenik.contact WHERE imenik.contactID = ?";
+		String query = "SELECT * FROM imenik.contact WHERE contact.contactID = ?";
 		
 		ResultSet rs = null;
 		
 		try (PreparedStatement ps = connection.prepareStatement(query)) {
-			ps.setInt(1, contactID);
-						
-			rs = ps.executeQuery(query);
+			
+			ps.setInt(1, contactID);						
+			rs = ps.executeQuery();
 			
 			if(rs.next()) {
 				contact = new Contact(rs.getInt("contactID"),rs.getString("name"),rs.getString("phone"),rs.getString("userName"));
@@ -99,12 +99,5 @@ public class ContactDAO implements IContactDAO {
 			return true;
 		}
 	}
-
-	@Override
-	public boolean printContact(Contact contact) throws SQLException {
-		
-		return true;
-	}
-	
 
 }

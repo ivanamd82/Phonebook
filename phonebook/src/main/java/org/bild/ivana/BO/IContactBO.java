@@ -19,6 +19,4 @@ public interface IContactBO {
 	
 	public boolean deleteContactBO(int contactID) throws SQLException;
 	
-//	public boolean printContact(Contact contact) throws SQLException;
-
 }

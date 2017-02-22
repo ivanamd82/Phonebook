@@ -41,5 +41,8 @@ public class Contact {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	public String toString() {
+		return "ID: "+getContactID()+" IME: "+getName()+" BROJ: "+getPhone();
+	}
 	
 }

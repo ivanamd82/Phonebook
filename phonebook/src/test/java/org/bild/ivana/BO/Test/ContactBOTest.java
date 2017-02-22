@@ -66,6 +66,7 @@ public class ContactBOTest {
 		
 		Mockito.verify(mockContactDAO).getContact(contact.getContactID());
 	}
+	
 	@Test
 	public void addContactBOShouldReturnFalseWhenUserNameIsEmpty() throws SQLException {
 		
@@ -81,6 +82,7 @@ public class ContactBOTest {
 		
 		assertFalse(result);			
 	}
+	
 	@Test
 	public void addContactBOShouldReturnFalseWhenContactNumberIsEmpty() throws SQLException {
 		
@@ -88,6 +90,7 @@ public class ContactBOTest {
 		
 		assertFalse(result);			
 	}
+	
 	@Test
 	public void addContactBOShouldReturnTrueWhenContactAddMetodIsCalled() throws SQLException {
 		
@@ -107,6 +110,7 @@ public class ContactBOTest {
 		
 		assertFalse(result);		
 	}
+	
 	@Test
 	public void updateContactBOShouldReturnFalseWhenContactNameIsEmpty() throws SQLException {
 		
@@ -114,6 +118,7 @@ public class ContactBOTest {
 		
 		assertFalse(result);			
 	}
+	
 	@Test
 	public void updateContactBOShouldReturnFalseWhenContactNumberIsEmpty() throws SQLException {
 		
@@ -133,6 +138,7 @@ public class ContactBOTest {
 		
 		Mockito.verify(mockContactDAO).updateContact(contact.getName(),contact.getPhone(),contact.getContactID());
 	}
+	
 	@Test
 	public void deleteContactBOShouldReturnFalseWhenIDIsZero() throws SQLException {
 		
@@ -140,6 +146,7 @@ public class ContactBOTest {
 		
 		assertFalse(result);		
 	}
+	
 	@Test
 	public void deleteContactBOShouldReturnTrueWhenContactDeleteMetodIsCalled() throws SQLException {
 		
@@ -150,9 +157,6 @@ public class ContactBOTest {
 		assertTrue(result);
 		
 		Mockito.verify(mockContactDAO).deleteContact(contact.getContactID());
-	}
-	
-
-	
+	}	
 
 }

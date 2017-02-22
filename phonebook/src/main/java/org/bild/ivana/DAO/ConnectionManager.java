@@ -29,7 +29,6 @@ public class ConnectionManager {
 	public Connection getConnection() {
 		if (connection == null) {
 			if(openConnection()) {
-				System.out.println("Konekcija uspostavljena");
 				return connection;
 			} else {
 				return null;

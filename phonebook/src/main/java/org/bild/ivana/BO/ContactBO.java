@@ -6,16 +6,15 @@ import java.util.ArrayList;
 import org.bild.ivana.DAO.ContactDAO;
 import org.bild.ivana.DTO.Contact;
 
-
-
 public class ContactBO implements IContactBO {
 	
-	ContactDAO contactDAO = null;
+	ContactDAO contactDAO = new ContactDAO();
 	Contact contact = null;
-	ArrayList<Contact> contacts = null;
+	ArrayList<Contact> contacts = new ArrayList<>();
 
 	@Override
 	public ArrayList<Contact> getContactsBO(String userName) throws SQLException {
+		
 		if (userName == "") {
 			return null;
 		}
@@ -55,6 +54,7 @@ public class ContactBO implements IContactBO {
 
 	@Override
 	public boolean updateContactBO(String name, String phone, int contactID) throws SQLException {
+		
 		if (contactID == 0) {
 			return false;
 		}
@@ -79,12 +79,6 @@ public class ContactBO implements IContactBO {
 		}
 	}
 
-/*	@Override
-	public boolean printContact(Contact contact) throws SQLException {
-		
-		return false;
-	}
-*/	
 	public void setContactDAO(ContactDAO contactDAO) {
 		this.contactDAO = contactDAO;
 	}

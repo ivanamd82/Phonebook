@@ -19,6 +19,4 @@ public interface IContactDAO {
 	
 	public boolean deleteContact(int contactID) throws SQLException;
 	
-	public boolean printContact(Contact contact) throws SQLException;
-		
 }
