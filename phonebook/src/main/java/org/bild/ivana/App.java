@@ -38,7 +38,9 @@ public class App {
 				input.nextLine();
 				user = userI.loginMainMenu();
 				if(user != null) {
-					printUserMenu(user);
+					while(true) {
+						printUserMenu(user);
+					}
 				}
 				break;		
 			}
@@ -61,14 +63,15 @@ public class App {
     
     public static void printUserMenu(User user) throws SQLException {
     	
-    	System.out.println("Izaberite opciju: \n");
+    	System.out.println("\nIzaberite opciju: \n");
 		System.out.println("1. Ispis svih kontakata\n"
 				+ "2. Dodaj novi kontakt\n"
 				+ "3. Uredjivanje kontakata\n"
-				+ "4. Izmjena korisnickog imena i sifre\n"
+				+ "4. Izmjena korisnicke sifre\n"
 				+ "5. Izlaz\n");	
 		try {
 			int izbor = input.nextInt();
+			
 			switch (izbor) {
 			case 1: {
 				userI.printAllContacts(user);
@@ -79,15 +82,16 @@ public class App {
 				break;
 			}
 			case 3: {
-				userI.modifyContact();
+				userI.modifyContact(user);
 				break;
 			}
 			case 4: {
-				userI.changeInfoUser();
+				userI.changeInfoUser(user);
 				break;
 			}
 			case 5: {
-				return;
+				System.out.println("Pa-pa");				
+				System.exit(0);	
 			}
 			default: throw new InputMismatchException("Pogresan unos.");
 			}															

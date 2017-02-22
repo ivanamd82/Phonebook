@@ -55,7 +55,7 @@ public class UserDAO implements IUserDAO {
 	public boolean updateUser(User user, String password) throws SQLException {
 		
 		
-		String query = "UPDATE imenik.user SET pasword = ? WHERE user.name = ?";
+		String query = "UPDATE imenik.user SET password = ? WHERE user.name = ?";
 
 		try (PreparedStatement ps = connection.prepareStatement(query)) {
 
