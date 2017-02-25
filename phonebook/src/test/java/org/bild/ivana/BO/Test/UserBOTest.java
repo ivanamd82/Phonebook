@@ -117,7 +117,7 @@ public class UserBOTest {
 	}
 	
 	@Test
-	public void updateUserBOShouldReturnNullWhenPasswordIsEmpty() throws SQLException {
+	public void updateUserBOShouldReturnFalseWhenPasswordIsEmpty() throws SQLException {
 		
 		boolean result = userBO.updateUserBO(valid,empty.getPassword());
 		
