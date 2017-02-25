@@ -87,7 +87,7 @@ public class UserBOTest {
 	@Test
 	public void addUserBOShouldReturnFalseWhenUserIsNotNull() throws SQLException {
 		
-		Mockito.when(mockUserDAO.getUser(valid.getName())).thenReturn(null);
+		Mockito.when(mockUserDAO.getUser(valid.getName())).thenReturn(valid);
 		
 		boolean result = userBO.addUserBO(valid.getName(), valid.getPassword());
 		
