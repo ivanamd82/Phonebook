@@ -12,7 +12,6 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 
-
 public class UserBOTest {	
 	UserBO userBO;
 	UserDAO mockUserDAO;
@@ -63,7 +62,7 @@ public class UserBOTest {
 		
 		User result = userBO.getUserBO(valid.getName(),valid.getPassword());
 		
-		assertNotNull(result);
+		assertSame(valid, result);
 		
 		Mockito.verify(mockUserDAO).getUser(valid.getName());
 	}
