@@ -41,12 +41,19 @@ public class ContactBOTest {
 		assertNull(result);
 	}
 	
-/*	@Test
+	@Test
 	public void getContactsBOShouldReturnListWhenContactGetContactsIsCalled() throws SQLException {
 		
-		Mockito.when(mockContactDAO.getContacts(userName)).thenReturn()
+		ArrayList<Contact> list = new ArrayList<>();
+		list.add(contact);
+		
+		Mockito.when(mockContactDAO.getContacts(userName)).thenReturn(list);
+		ArrayList<Contact> result = contactBO.getContactsBO(userName);
+		assertSame(list.get(0),result.get(0));
+		
+		Mockito.verify(mockContactDAO).getContacts(userName);
 	}
-*/	
+	
 	@Test
 	public void getContactBOShouldReturnNullWhenIDIsZero() throws SQLException {
 		
